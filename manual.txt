@@ -1,0 +1,93 @@
+C++98
+
+NAMESPACE
+
+
+
+SALIDA Y ENTRADA ESTANDAR
+
+#include <iostream>							INCLUDE NECESARIO www.cplusplus.com look:iostream
+											std::cout	for output stream
+											std::cin	for input stream
+											std::cerror for error
+											std::clog 	got logging
+
+
+std::cout << "hello world" << std::endl; 	SALIDA ESTANDAR
+
+char buf[512];
+std::cin >> buf; 							ENTRADA ESTANDAR
+
+std::cout << "hello world" << BUF << std::endl; 
+
+OBJECTS
+
+Sample.class.hpp   (use this format for filter class files)
+ 
+#ifndef SAMPLE_CLASS_H
+#define SAMPLE_CLASS_H
+
+Class Sample {
+
+public:
+	int	foo;				//member attributes 
+	char	a1;
+	int		a2;
+	float	a3;
+	
+	Sample(char a1, int a2, float a3); 		//constructor
+	~Sample( void );		//destructor
+	
+	void	bar(void);		//member functions
+private;					//typo tip "_a" for private variables and function
+	
+};
+
+#endif
+
+Sample.class.cpp		(use this format for filter class files)
+
+#include <iostream>
+#include "Sample.class.hpp"    //use a path "../includes/Sample.class.hpp"
+
+Sample::Sample(char _a1, int _a2, float _a3){			//Se ejecuta cuando la clase es instanciada para inicializar			
+	std::cout << "constructor called" << std::endl;
+	this->a1 = _a1;				//"this" is a pointer to the current instance
+	this->a2 = _a2;
+	this->a3 = _a3;
+	this->bar();	
+	
+	return;
+}
+
+//ejemplo de una initialitazion list
+Sample::Sample(char _a1, int _a2, float _a3):a1(_a1),a2(_a2),a3(_a3){
+
+Sample::~Sample( void ){
+	std::cout << "destructor called" << std::endl;
+	return;
+}
+
+Sample::bar( void ){								
+	std::cout << "member function bar called" << std::endl;
+	return;
+}
+
+
+
+
+
+
+#include "Sample.class.hpp"
+
+int main(){
+
+Sample mivar(10,30,3.2);			//Primero se llama al constructor y cuando cerramos se llama a destructor
+//mivar::foo = 42;		//doy un valor a la variable foo de la clase
+//mivar::bar();			//ejecuto la funcion bar de la clase
+
+
+return 0;
+}
+
+
