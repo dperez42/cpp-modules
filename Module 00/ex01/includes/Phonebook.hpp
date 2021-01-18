@@ -11,12 +11,9 @@ class Contact;
 class Contact
 {
     public:
-        // Coplien
         Contact();
-        //Contact(const Contact&);
         ~Contact();
         Contact &operator=(const Contact& op);
-
         //Set
         void    setFirstName(const std::string &first_name);
         void    setLastName(const std::string &last_name);
@@ -44,7 +41,9 @@ class Contact
 
         // Additionnal
         void    add_contact();
+        void    print_title();
         void    print_contact();
+        void    print_names();
         bool    empty();
 
         // Exceptions
@@ -62,5 +61,9 @@ class Contact
         std::string _underwear_color;
         std::string _darkest_secret;
         bool        _is_empty;
+
+    private:
+        static void _ft_format(std::string s);
+
 };
 #endif

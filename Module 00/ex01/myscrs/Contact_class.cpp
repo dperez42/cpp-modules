@@ -114,6 +114,27 @@ void	Contact::add_contact()
 	this->_is_empty = false;
 }
 
+void	Contact::print_title(){
+	std::cout << std::endl;
+	std::cout << "██████ ██   ██  ██████  ███    ██ ███████ ██████   ██████   ██████  ██   ██ " << std::endl;
+	std::cout << "██  ██ ██   ██ ██    ██ ████   ██ ██      ██   ██ ██    ██ ██    ██ ██  ██  " << std::endl;
+	std::cout << "██████ ███████ ██    ██ ██ ██  ██ █████   ██████  ██    ██ ██    ██ █████   " << std::endl;
+	std::cout << "██     ██   ██ ██    ██ ██  ██ ██ ██      ██   ██ ██    ██ ██    ██ ██  ██  " << std::endl;
+	std::cout << "██     ██   ██  ██████  ██   ████ ███████ ██████   ██████   ██████  ██   ██ " << std::endl;
+	std::cout << std::endl;
+	std::cout << "Welcome to your phonebook !\nThe available commands are : " << std::endl;
+	std::cout << " - ADD \n - SEARCH \n - EXIT \n" << std::endl;
+}
+
+void	Contact::print_names(){
+	    Contact::_ft_format(this->_first_name);
+        std::cout << "|";
+        Contact::_ft_format(this->_last_name);
+        std::cout << "|";
+        Contact::_ft_format(this->_nickname);
+        std::cout << std::endl;
+}
+
 void	Contact::print_contact()
 {
 	std::cout << "first name      : " << this->getFirstName() << std::endl;
@@ -131,4 +152,19 @@ void	Contact::print_contact()
 
 bool	Contact::empty()
 { return (this->_is_empty); }
+
+void Contact::_ft_format(std::string s)
+{
+    if (s.size() > 10)
+    {
+        s = s.insert(9, ".");
+        s = s.substr(0, 10);
+    }
+    else
+        while (s.length() < 10)
+            s = s.insert(0, " ");
+    std::cout << s;
+}
+
+
 

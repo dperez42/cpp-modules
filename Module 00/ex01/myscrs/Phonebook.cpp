@@ -37,19 +37,7 @@ static int ft_add(Contact list[8])
     return (0);
 }
 
-static void ft_format(std::string s)
-{
-    if (s.size() > 10)
-    {
-        s = s.insert(9, ".");
-        s = s.substr(0, 10);
-    }
-    else
-        while (s.length() < 10)
-            s = s.insert(0, " ");
-    std::cout << s;
-}
-static std::string ft_print_index(Contact list[8], int contact_amount)
+static std::string ft_print_by_index(Contact list[8], int contact_amount)
 {
     std::string entry;
     std::cout << "Choose an index between 0 to " << contact_amount - 1 << " : ";
@@ -73,12 +61,7 @@ static int ft_search(Contact list[8], bool b)
     while (!list[j].empty() && j < 8)
     {
         std::cout << "         " << j << "|";
-        ft_format(list[j].getFirstName());
-        std::cout << "|";
-        ft_format(list[j].getLastName());
-        std::cout << "|";
-        ft_format(list[j].getNickname());
-        std::cout << std::endl;
+        list[j].print_names();
         j++;
     }
     
@@ -86,12 +69,9 @@ static int ft_search(Contact list[8], bool b)
     {
         while (1){
             std::string entry;
-            entry = ft_print_index(list, j);
+            entry = ft_print_by_index(list, j);
             if (entry.compare("NONE"))
-            {
                 std::cout << "Index: " << entry << " no exist. Try another or press \"ENTER\" to exit." << std::endl;
-                //return (0);
-            } 
             else {
                 return(0);
             }
@@ -126,26 +106,13 @@ static int ft_menu(Contact list[8])
 	return (0);
 }
 
-static void	title(void)
-{
-	std::cout << std::endl;
-	std::cout << "██████ ██   ██  ██████  ███    ██ ███████ ██████   ██████   ██████  ██   ██ " << std::endl;
-	std::cout << "██  ██ ██   ██ ██    ██ ████   ██ ██      ██   ██ ██    ██ ██    ██ ██  ██  " << std::endl;
-	std::cout << "██████ ███████ ██    ██ ██ ██  ██ █████   ██████  ██    ██ ██    ██ █████   " << std::endl;
-	std::cout << "██     ██   ██ ██    ██ ██  ██ ██ ██      ██   ██ ██    ██ ██    ██ ██  ██  " << std::endl;
-	std::cout << "██     ██   ██  ██████  ██   ████ ███████ ██████   ██████   ██████  ██   ██ " << std::endl;
-	std::cout << std::endl;
-	std::cout << "Welcome to your phonebook !\nThe available commands are : " << std::endl;
-	std::cout << " - ADD \n - SEARCH \n - EXIT \n" << std::endl;
-}
-
 int main()
 {
     int command;
     Contact list[8];
     
     command = 0;
-    title();
+    list[0].print_title();
     while (command == 0)
             command = ft_menu(list);
     std::cout << "Bye bye !" << std::endl;
