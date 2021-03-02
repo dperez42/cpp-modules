@@ -1,8 +1,7 @@
 #include "../includes/Phonebook.hpp"
 
 // Constructor.
-Contact::Contact():	_is_empty(true)
-{}
+Contact::Contact():	_is_empty(true) {}
 
 // Destructor:
 Contact::~Contact() {}
@@ -112,18 +111,6 @@ void	Contact::add_contact()
 		(i == 10) ? this->setDarkestSecret(entry) : (void)0;
 	}
 	this->_is_empty = false;
-}
-
-void	Contact::print_title(){
-	std::cout << std::endl;
-	std::cout << "██████ ██   ██  ██████  ███    ██ ███████ ██████   ██████   ██████  ██   ██ " << std::endl;
-	std::cout << "██  ██ ██   ██ ██    ██ ████   ██ ██      ██   ██ ██    ██ ██    ██ ██  ██  " << std::endl;
-	std::cout << "██████ ███████ ██    ██ ██ ██  ██ █████   ██████  ██    ██ ██    ██ █████   " << std::endl;
-	std::cout << "██     ██   ██ ██    ██ ██  ██ ██ ██      ██   ██ ██    ██ ██    ██ ██  ██  " << std::endl;
-	std::cout << "██     ██   ██  ██████  ██   ████ ███████ ██████   ██████   ██████  ██   ██ " << std::endl;
-	std::cout << std::endl;
-	std::cout << "Welcome to your phonebook !\nThe available commands are : " << std::endl;
-	std::cout << " - ADD \n - SEARCH \n - EXIT \n" << std::endl;
 }
 
 void	Contact::print_names(){

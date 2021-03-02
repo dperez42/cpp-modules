@@ -66,4 +66,12 @@ class Contact
         static void _ft_format(std::string s);
 
 };
+
+int ft_search(Contact list[8], bool b);
+int	ft_full_phonebook(Contact list[8]);
+int ft_add(Contact list[8]);
+std::string ft_print_by_index(Contact list[8], int contact_amount);
+int ft_search(Contact list[8], bool b);
+int ft_menu(Contact list[8]);
+
 #endif

@@ -1,8 +1,18 @@
 #include "../includes/Phonebook.hpp"
 
-static int ft_search(Contact list[8], bool b);
+void	ft_print_title(){
+	std::cout << std::endl;
+	std::cout << "██████ ██   ██  ██████  ███    ██ ███████ ██████   ██████   ██████  ██   ██ " << std::endl;
+	std::cout << "██  ██ ██   ██ ██    ██ ████   ██ ██      ██   ██ ██    ██ ██    ██ ██  ██  " << std::endl;
+	std::cout << "██████ ███████ ██    ██ ██ ██  ██ █████   ██████  ██    ██ ██    ██ █████   " << std::endl;
+	std::cout << "██     ██   ██ ██    ██ ██  ██ ██ ██      ██   ██ ██    ██ ██    ██ ██  ██  " << std::endl;
+	std::cout << "██     ██   ██  ██████  ██   ████ ███████ ██████   ██████   ██████  ██   ██ " << std::endl;
+	std::cout << std::endl;
+	std::cout << "Welcome to your phonebook !\nThe available commands are : " << std::endl;
+	std::cout << " - ADD \n - SEARCH \n - EXIT \n" << std::endl;
+}
 
-static int	ft_full_phonebook(Contact list[8])
+int	ft_full_phonebook(Contact list[8])
 {
     std::string rep;
 
@@ -25,7 +35,7 @@ static int	ft_full_phonebook(Contact list[8])
     return (1);
 }
 
-static int ft_add(Contact list[8])
+int ft_add(Contact list[8])
 {
     int j = 0;
     while (!list[j].empty() && j < 8)
@@ -37,7 +47,7 @@ static int ft_add(Contact list[8])
     return (0);
 }
 
-static std::string ft_print_by_index(Contact list[8], int contact_amount)
+std::string ft_print_by_index(Contact list[8], int contact_amount)
 {
     std::string entry;
     std::cout << "Choose an index between 0 to " << contact_amount - 1 << " : ";
@@ -53,7 +63,7 @@ static std::string ft_print_by_index(Contact list[8], int contact_amount)
     return ("NONE");
 }
 
-static int ft_search(Contact list[8], bool b)
+int ft_search(Contact list[8], bool b)
 {
     std::cout << "     index|first name| last name|  nickname" << std::endl;
     std::cout << "-------------------------------------------" << std::endl;
@@ -80,14 +90,16 @@ static int ft_search(Contact list[8], bool b)
     return (0);
 }
 
-static int ft_menu(Contact list[8])
+int ft_menu(Contact list[8])
 {
     std::string entry;
 	std::cout << "Command? > ";
 	std::getline(std::cin, entry);
-	if (std::cin.eof()){
+	/*
+    if (std::cin.eof()){
 		return (1);
     }
+    */
 	if (!entry.compare("ADD")){
 		std::cout << "your command: " <<  entry << std::endl;
         ft_add(list);
@@ -112,7 +124,7 @@ int main()
     Contact list[8];
     
     command = 0;
-    list[0].print_title();
+    ft_print_title();
     while (command == 0)
             command = ft_menu(list);
     std::cout << "Bye bye !" << std::endl;
