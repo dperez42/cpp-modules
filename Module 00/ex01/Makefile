@@ -15,7 +15,6 @@ OBJS 		= 	$(addprefix $(OBJS_DIR), $(OBJ))
 # FROM SUBJECT =============================================================================
 $(OBJS_DIR)%.o :	$(SRCS_DIR)%.cpp $(INCS_DIR)
 	@mkdir -p $(OBJS_DIR)
-	@mkdir -p $(OBJS_DIR)/contacts
 	@echo "Compiling: $<"
 	@clang++ $(FLAGS) $(INCLUDES) -c $< -o $@
 
